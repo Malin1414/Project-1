@@ -1,5 +1,5 @@
 body {
-    background: #ced9e9;
+    background: white;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -63,7 +63,7 @@ h4 {
     color: #fff;
     text-align: center;
     padding: 20px 0;
-    position: absolute;
+    position:relative;
     bottom: 0;
     width: 100%;
 }
@@ -89,3 +89,41 @@ h4 {
     object-fit: cover;
     z-index: 10;
 }
+
+.event {
+	width: 40%;
+	margin-right: auto;
+    margin-left: auto;
+	float: center;
+	background-color: #fff;
+    text-align: center;
+    
+}
+
+.event i {
+	color: red;
+	font-size: 14px;
+}
+
+.event div {
+	padding: 5px;
+
+}
+
+.event .heading {
+	padding: 10px;
+	color: #fff;
+	background: black;
+	text-align: center;
+	font-size: 22px;
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+
+.event ul li {
+	margin-bottom: 20px;
+	width: 100%;
+	float: center;
+	list-style: none;
+}
+
