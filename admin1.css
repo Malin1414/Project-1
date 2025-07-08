@@ -6,17 +6,12 @@ body {
     text-align: center;
 }
 
-/****************HEADER SECTION****************/
+/* HEADER SECTION */
 .header {
-	background: #000;
-	padding: 6px;	
-}
-
-.header b {
-	background: #fff;
-	color: red;
-	padding: 10px;
-	font-size: 20px;
+  background: #000;
+  padding: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .header marquee {
@@ -25,12 +20,45 @@ body {
 	width: 80%;
 }
 
+.container {
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+
+.header marquee {
+  font-size: 20px;
+  color: #fff;
+  flex: 1;
+}
+
+/* NAV MENU */
+nav {
+  float: right;
+}
+
+nav a {
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 0 10px;
+  font-weight: 500;
+}
+
+
+
 /**********LOGO SECTION**********/
-.logo {
+.container .logo {
 	height: 65px;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    margin-left: 0px;
 }
 
 /**********MENU SECTION**********/
+
 nav {
 	float: right;
 	padding: 25px 0px;
@@ -43,10 +71,22 @@ nav a {
 	padding: 2px 10px;
 	font-weight: 500;
 }
+nav a:hover {
+    background-color: #c0132a;
+    color: white;
+    border-radius: 5px;
+}
+
+.main {
+    background-color: #b3d1ec;
+    text-align: center;
+}
 
 h1 {
     color: #0a0a0a;
-    margin-top: 40px;
+    margin-top: 60px;
+    align-items: center;
+    margin-left: 450px;
 }
 
 p {
@@ -85,9 +125,10 @@ button:hover {
     position: absolute;
     top: 20px;
     left: 30px;
-    width: 80px;      
+    width: 80px;
     height: auto;
     z-index: 10;
+}
 }
 
 .event {
