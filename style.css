@@ -152,8 +152,8 @@ ul li a:hover{
 }
 
 .form{
-    width: 250px;
-    height: 300px;
+    width: 300px;
+    height: 320px;
     background: linear-gradient(to top, rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
     position: absolute;
     top: -20px;
@@ -165,7 +165,7 @@ ul li a:hover{
 }
 
 .form h2{
-    width: 220px;
+    width: 280px;
     font-family: sans-serif;
     text-align: center;
     color: #ff7200;
@@ -177,7 +177,7 @@ ul li a:hover{
 }
 
 .form input{
-    width: 240px;
+    width: 300px;
     height: 35px;
     background: transparent;
     border-bottom: 1px solid #ff7200;
