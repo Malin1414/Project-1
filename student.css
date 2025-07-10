@@ -61,6 +61,12 @@ nav a {
 	font-weight: 500;
 }
 
+nav a:hover {
+    background-color: #c0132a;
+    color: white;
+    border-radius: 5px;
+}
+
 
 /****************EVENT SECTION*************/
 .main-section {
