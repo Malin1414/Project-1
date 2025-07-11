@@ -61,12 +61,53 @@ nav a {
 	font-weight: 500;
 }
 
+nav a:hover {
+    background-color: #c0132a;
+    color: white;
+    border-radius: 5px;
+}
+
 
 /****************EVENT SECTION*************/
 .main-section {
 	width: 100%;
 	float: left;
-	padding: 100px 0px 100px 0px;
+	padding: 60px 0px 60px 0px;
+}
+
+.event1 {
+	width: 92%;
+	margin-left: 1%;
+	float: center;
+	background-color: #57abce;
+	height: 530px;
+	
+}
+
+.event1 i {
+	color: rgb(180, 16, 14);
+	font-size: 16px;
+}
+
+.event1 div {
+	padding: 10px;
+}
+
+.event1 .heading {
+	padding: 10px;
+	color: #fff;
+	background: black;
+	text-align: center;
+	font-size: 22px;
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+
+.event1 ul li {
+	margin-bottom: 20px;
+	width: 100%;
+	float: left;
+	list-style: none;
 }
 
 .event {
@@ -102,36 +143,9 @@ nav a {
 	list-style: none;
 }
 
-.event-date {
-	background: red;
-	float: left;
-	text-align: center;
-	font-size: 14px;
-	color: #fff;
-	padding: 8px 12px;
-	margin-right: 10px;
-}
 
-/*******CAMPUS NEWS SECTION***********/
-.campus-news span {
-	width: 80px;
-	float: left;
-}
 
-.campus-news h2 {
-	font-weight: 600;
-	font-size: 16px;
-}
 
-.campus-news h6 {
-	font-weight: 500;
-	font-size: 13px;
-	color: red;
-}
-
-.campus-news p {
-	font-size: 14px;
-}
 /****************ABOUT US SECTION****************/
 .heading {
 	font-size: 28px;
@@ -141,7 +155,7 @@ nav a {
 }
 
 .subhead {
-	font-size: 18px;
+	font-size: 28px;
 	color: red;
 	font-weight: 500;
 }
@@ -151,13 +165,10 @@ nav a {
 	float: left;
 	line-height: 30px;
 	font-size: 18px;
+	
 }
 
-.about-us h4 {
-	font-size: 18px;
-	color: red;
-	font-weight: 500;
-}
+
 
 .about-us p {
 	font-size: 16px;
