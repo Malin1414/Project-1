@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`notice` (
 -- Table `mydb`.`admin`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`admin` (
-  `adminId` INT NOT NULL,
+  `adminId` VARCHAR NOT NULL,
   `name` VARCHAR(45) NULL,
   `password` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,
@@ -85,7 +85,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`students`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`students` (
-  `studentId` INT NOT NULL,
+  `studentId` VARCHAR NOT NULL,
   `name` VARCHAR(45) NULL,
   `password` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NULL,
