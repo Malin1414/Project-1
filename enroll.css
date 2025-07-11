@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Background and layout */
+.main {
+    height: 100vh;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.5) 50%),
+                url(usj_cover-1557335254.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Signup form container */
+.signup-box {
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.8) 50%);
+    padding: 30px 25px;
+    border-radius: 10px;
+    width: 300px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Heading style */
+.signup-box h2 {
+    color: #ff7200;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Input fields */
+.signup-box input {
+    width: 100%;
+    height: 35px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ff7200;
+    margin: 20px 0;
+    padding-left: 5px;
+    color: white;
+    font-size: 14px;
+    font-family: sans-serif;
+}
+
+.signup-box input::placeholder {
+    color: #fff;
+}
+
+.signup-box input:focus {
+    outline: none;
+}
+
+/* Signup button */
+.btnn {
+    width: 100%;
+    height: 40px;
+    background-color: #ff7200;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 10px;
+}
+
+.btnn:hover {
+    background-color: #fff;
+    color: #ff7200;
+}
+
+/* Link to login */
+.link {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.link a {
+    color: #ff7200;
+    text-decoration: none;
+}
+#footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+#footer a {
+    color: #ff7200;
+    text-decoration: none;
+}
