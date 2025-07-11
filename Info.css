@@ -1,0 +1,81 @@
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.5) 50%),
+                url("reg.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-box {
+    background-color: black;
+    color: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    width: 500px;
+    height: 450px;
+    text-align: left;
+    border: 2px solid gray;
+    
+}
+.container-box h2{
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    color: #ff7200;
+    text-align: center;
+    padding-bottom: 20px;
+}
+form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #ff7200;
+      color: white;
+}
+form select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ff7200;
+    background-color: black;
+    color: white;
+    outline: none;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px black inset !important;
+    -webkit-text-fill-color: white !important;
+    background-color: black !important;
+    transition: background-color 9999s ease-in-out 0s;
+}
+form button{
+    width: 100%;
+    background-color: #ff7200;
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    font-size: 16px;
+    box-sizing: border-box;
+    letter-spacing: 5px;
+}
+.btn:hover {
+    background-color: #fff;
+    color: #ff7200;
+}
