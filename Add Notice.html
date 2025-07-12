@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Notice Submission Form</title>
+        <link rel="stylesheet" href="Add Notice.css">
+    </head>
+    <body>
+
+        <!--Top Header-->
+        <div class="header">
+            <marquee> University of Sri Jayewardenepura. </marquee>
+        </div>
+        
+        <!---Logo Section--->
+        <div class="menu-bar">
+            <img src="logo.jpg" alt="University Logo" class="logo">
+            <!---Menu section--->
+            <nav>
+                <a href="#main">Home</a>
+                <a href="#about">About us</a>
+                <a href="#information">Information</a>
+                <a href="#footer">Contact us</a>
+            </nav>
+        </div>
+
+        <div class="main-section" id ="main" style="background:#d4eef8">
+            <div class="container">
+
+             <!--Form section-->
+                <div class="form-container">
+            
+                    <h1>Add New Notice</h1>
+                    <form id="noticeForm">
+
+                    <div class="form-group">
+                        <label for="noticeTitle">Notice Title*</label>
+                        <input type="text" id="noticeTitle" name="noticeTitle" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="description">Description*</label>
+                        <textarea id="description" name="description" rows="10" required></textarea>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="validDate">Notice Valid Until*</label>
+                        <input type="date" id="validDate" name="validDate" required>
+                        </div>
+
+                    <div class="selection">
+                        <label>Department*</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="department" value="Computer Science"> Computer Science</label>
+                            <label><input type="checkbox" name="department" value="Software Engineering"> Software Engineering</label>
+                            <label><input type="checkbox" name="department" value="Information System"> Information System</label>
+                        </div>
+                    </div>
+
+                    <div class="selection">
+                        <label>Batch*</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="batch" value="2021/22"> 2021/22</label>
+                            <label><input type="checkbox" name="batch" value="2022/23"> 2022/23</label>
+                            <label><input type="checkbox" name="batch" value="2023/24"> 2023/24</label>
+                        </div>
+                    </div>
+            
+                    <div class="file">
+                        <label for="attachment">Attach File</label>
+                        <input type="file" id="attachment" name="attachment">
+                    </div>
+            
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn">Submit Notice</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+<!---Footer section--->
+
+        <footer id="footer">
+            <div class="footer-content">
+                <h3>Contact Us</h3>
+                <p>University of Sri Jayewardenepura, Gangodawila, Nugegoda</p>
+                <p>E-mail : <a href="mailto:info@sjp.ac.lk">info@sjp.ac.lk</a></p>
+            </div>
+        </footer>
+    </body>
+</html>

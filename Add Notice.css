@@ -1,0 +1,193 @@
+body {
+    background: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 100mv;
+}
+
+/*Header section*/
+.header {
+  background: #000;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.header b {
+	background: #fff;
+	color: red;
+	padding: 10px;
+	font-size: 20px;
+}
+
+.header marquee {
+	font-size: 20px;
+	color: #fff;
+	width: 80%;
+}
+
+
+.menu-bar {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 10px 40px;
+    justify-content: space-between;
+  }
+  
+.header marquee {
+    font-size: 20px;
+    color: #fff;
+    flex: 1;
+}
+  
+
+.menu-bar .logo{
+    height: 65px;
+    margin: 0;
+}
+
+/*Menu section*/
+nav {
+    float: right;
+    padding: 25px 0px;
+}
+  
+nav a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 2px 10px;
+    font-weight: 500;
+}
+
+nav a:hover {
+    background-color: #c0132a;
+    color: white;
+    border-radius: 5px;
+}
+
+/*Main selection*/
+.main-section {
+	width: 100%;
+	float: left;
+	padding: 60px 0px 60px 0px;
+}
+
+/*Form Section*/
+
+.form-container {
+    background-color: #a0d8ed;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 8, 10, 0.2);
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    
+}
+
+h1 {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #080808;
+}
+
+input[type="text"],
+input[type="date"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.selection {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.selection label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.selection input[type="checkbox"] {
+    width: auto;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.submit-btn {
+    background-color: rgb(204, 7, 7);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background-color: rgb(204, 7, 7);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: rgb(204, 7, 7);
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+/*Footer Section */
+#footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    clear: both;
+}
+#footer a {
+    color: #ff7200;
+    text-decoration: none;
+}
+
+#footer p{
+    margin: 0;
+    font-size: 0.9em;
+    color: #eafaf1;
+    font-weight: bold;
+}
