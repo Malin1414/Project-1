@@ -9,8 +9,13 @@
 <body>
     <div class="container">
         <div class="container-box">
-        <form action="home.html" method="get">
+        <form action="Admin_Info.php" method="post">
             <h2>Registration</h2>
+
+            <!-- Hidden staffId field from enroll.html -->
+            <input type="hidden" name="staffId" value="<?php echo isset($_GET['staffId']) ? htmlspecialchars($_GET['staffId']) : ''; ?>">
+
+
             <label for="name">Name</label>
             <input type="name" id="name" name="name" required>
 

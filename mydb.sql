@@ -5,153 +5,162 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema education_management
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `mydb` ;
+DROP SCHEMA IF EXISTS `education_management`;
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema education_management
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
--- -----------------------------------------------------
--- Schema webtechnology
--- -----------------------------------------------------
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `education_management` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `education_management`;
 
 -- -----------------------------------------------------
--- Table `mydb`.`faculty`
+-- Table `education_management`.`departments`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`faculty` (
-  `staffId` INT NOT NULL,
-  `name` VARCHAR(45) NULL,
-  `email` VARCHAR(45) NULL,
-  `password` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`staffId`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`notice`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`notice` (
-  `noticeId` INT NOT NULL,
-  `description` TEXT NULL,
-  `date` DATE NULL,
-  `title` VARCHAR(45) NULL,
-  `faculty_staffId` INT NOT NULL,
-  PRIMARY KEY (`noticeId`),
-  INDEX `fk_notice_faculty1_idx` (`faculty_staffId`),
-  CONSTRAINT `fk_notice_faculty1`
-    FOREIGN KEY (`faculty_staffId`)
-    REFERENCES `mydb`.`faculty` (`staffId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+CREATE TABLE IF NOT EXISTS `education_management`.`departments` (
+  `departmentId` INT NOT NULL AUTO_INCREMENT,
+  `departmentName` VARCHAR(45) NOT NULL,
+  `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`departmentId`),
+  UNIQUE INDEX `departmentName_UNIQUE` (`departmentName` ASC)
 ) ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `education_management`.`year`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `education_management`.`year` (
+  `yearId` INT NOT NULL AUTO_INCREMENT,
+  `year` INT NOT NULL,
+  `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`yearId`),
+  UNIQUE INDEX `year_UNIQUE` (`year` ASC)
+) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `mydb`.`admin`
+-- Table `education_management`.`faculty`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`admin` (
-  `adminId` VARCHAR NOT NULL,
-  `name` VARCHAR(45) NULL,
-  `password` VARCHAR(45) NULL,
-  `email` VARCHAR(45) NULL,
-  PRIMARY KEY (`adminId`))
-ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `education_management`.`faculty` (
+  `staffId` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(255) NOT NULL COMMENT 'Store hashed passwords only',
+  `departmentId` INT NULL,
+  `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`staffId`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC),
+  INDEX `fk_faculty_department_idx` (`departmentId` ASC),
+  CONSTRAINT `fk_faculty_department`
+    FOREIGN KEY (`departmentId`)
+    REFERENCES `education_management`.`departments` (`departmentId`)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE
+) ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
--- Table `mydb`.`departments`
+-- Table `education_management`.`students`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`departments` (
+CREATE TABLE IF NOT EXISTS `education_management`.`students` (
+  `studentId` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(255) NOT NULL COMMENT 'Store hashed passwords only',
   `departmentId` INT NOT NULL,
-  `departmentsName` VARCHAR(45) NULL,
-  PRIMARY KEY (`departmentId`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`year`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`year` (
   `yearId` INT NOT NULL,
-  `year` INT NULL,
-  PRIMARY KEY (`yearId`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`students`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`students` (
-  `studentId` VARCHAR NOT NULL,
-  `name` VARCHAR(45) NULL,
-  `password` VARCHAR(45) NOT NULL,
-  `email` VARCHAR(45) NULL,
-  `departments_departmentId` INT NOT NULL,
-  `year_yearId` INT NOT NULL,
+  `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`studentId`),
-  INDEX `fk_students_departments1_idx` (`departments_departmentId`),
-  INDEX `fk_students_year1_idx` (`year_yearId`),
-  CONSTRAINT `fk_students_departments1`
-    FOREIGN KEY (`departments_departmentId`)
-    REFERENCES `mydb`.`departments` (`departmentId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_students_year1`
-    FOREIGN KEY (`year_yearId`)
-    REFERENCES `mydb`.`year` (`yearId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC),
+  INDEX `fk_students_department_idx` (`departmentId` ASC),
+  INDEX `fk_students_year_idx` (`yearId` ASC),
+  CONSTRAINT `fk_students_department`
+    FOREIGN KEY (`departmentId`)
+    REFERENCES `education_management`.`departments` (`departmentId`)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_students_year`
+    FOREIGN KEY (`yearId`)
+    REFERENCES `education_management`.`year` (`yearId`)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE
 ) ENGINE = InnoDB;
 
-
-
 -- -----------------------------------------------------
--- Table `mydb`.`year_has_notice`
+-- Table `education_management`.`admin`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`year_has_notice` (
-  `year_yearId` INT NOT NULL,
-  `notice_noticeId` INT NOT NULL,
-  PRIMARY KEY (`year_yearId`, `notice_noticeId`),
-  INDEX `fk_year_has_notice_notice1_idx` (`notice_noticeId`),
-  INDEX `fk_year_has_notice_year_idx` (`year_yearId`),
-  CONSTRAINT `fk_year_has_notice_year`
-    FOREIGN KEY (`year_yearId`)
-    REFERENCES `mydb`.`year` (`yearId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_year_has_notice_notice1`
-    FOREIGN KEY (`notice_noticeId`)
-    REFERENCES `mydb`.`notice` (`noticeId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+CREATE TABLE IF NOT EXISTS `education_management`.`admin` (
+  `adminId` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(255) NOT NULL COMMENT 'Store hashed passwords only',
+  `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`adminId`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC)
 ) ENGINE = InnoDB;
 
-
-
 -- -----------------------------------------------------
--- Table `mydb`.`departments_has_notice`
+-- Table `education_management`.`notice`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`departments_has_notice` (
-  `departments_departmentId` INT NOT NULL,
-  `notice_noticeId` INT NOT NULL,
-  PRIMARY KEY (`departments_departmentId`, `notice_noticeId`),
-  INDEX `fk_departments_has_notice_notice1_idx` (`notice_noticeId`),
-  INDEX `fk_departments_has_notice_departments1_idx` (`departments_departmentId`),
-  CONSTRAINT `fk_departments_has_notice_departments1`
-    FOREIGN KEY (`departments_departmentId`)
-    REFERENCES `mydb`.`departments` (`departmentId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_departments_has_notice_notice1`
-    FOREIGN KEY (`notice_noticeId`)
-    REFERENCES `mydb`.`notice` (`noticeId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+CREATE TABLE IF NOT EXISTS `education_management`.`notice` (
+  `noticeId` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(100) NOT NULL,
+  `description` TEXT NOT NULL,
+  `date` DATE NOT NULL,
+  `staffId` VARCHAR(45) NOT NULL,
+  `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`noticeId`),
+  INDEX `fk_notice_faculty_idx` (`staffId` ASC),
+  CONSTRAINT `fk_notice_faculty`
+    FOREIGN KEY (`staffId`)
+    REFERENCES `education_management`.`faculty` (`staffId`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 ) ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `education_management`.`notice_departments`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `education_management`.`notice_departments` (
+  `noticeId` INT NOT NULL,
+  `departmentId` INT NOT NULL,
+  PRIMARY KEY (`noticeId`, `departmentId`),
+  INDEX `fk_notice_dept_department_idx` (`departmentId` ASC),
+  CONSTRAINT `fk_notice_dept_notice`
+    FOREIGN KEY (`noticeId`)
+    REFERENCES `education_management`.`notice` (`noticeId`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_notice_dept_department`
+    FOREIGN KEY (`departmentId`)
+    REFERENCES `education_management`.`departments` (`departmentId`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+) ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `education_management`.`notice_years`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `education_management`.`notice_years` (
+  `noticeId` INT NOT NULL,
+  `yearId` INT NOT NULL,
+  PRIMARY KEY (`noticeId`, `yearId`),
+  INDEX `fk_notice_year_year_idx` (`yearId` ASC),
+  CONSTRAINT `fk_notice_year_notice`
+    FOREIGN KEY (`noticeId`)
+    REFERENCES `education_management`.`notice` (`noticeId`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_notice_year_year`
+    FOREIGN KEY (`yearId`)
+    REFERENCES `education_management`.`year` (`yearId`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+) ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
