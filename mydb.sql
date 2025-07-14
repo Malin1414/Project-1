@@ -42,6 +42,7 @@ CREATE TABLE IF NOT EXISTS `education_management`.`year` (
 -- -----------------------------------------------------
 -- Table `education_management`.`faculty`
 -- -----------------------------------------------------
+<<<<<<< HEAD
 CREATE TABLE IF NOT EXISTS `education_management`.`faculty` (
   `staffId` VARCHAR(45) NOT NULL,
   `name` VARCHAR(45) NOT NULL,
@@ -59,6 +60,16 @@ CREATE TABLE IF NOT EXISTS `education_management`.`faculty` (
     ON DELETE SET NULL
     ON UPDATE CASCADE
 ) ENGINE = InnoDB;
+=======
+CREATE TABLE IF NOT EXISTS `mydb`.`admin` (
+  `adminId` VARCHAR(10) NOT NULL,
+  `name` VARCHAR(45) NULL,
+  `password` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NULL,
+  PRIMARY KEY (`adminId`))
+ENGINE = InnoDB;
+
+>>>>>>> f09d6fab4edd0b8f6b2d70c40fea78a9235bcc51
 
 -- -----------------------------------------------------
 -- Table `education_management`.`students`
@@ -70,8 +81,26 @@ CREATE TABLE IF NOT EXISTS `education_management`.`students` (
   `password` VARCHAR(255) NOT NULL COMMENT 'Store hashed passwords only',
   `departmentId` INT NOT NULL,
   `yearId` INT NOT NULL,
+<<<<<<< HEAD
   `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+=======
+  `year` INT NULL,
+  PRIMARY KEY (`yearId`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`students`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`students` (
+  `studentId` VARCHAR(10) NOT NULL,
+  `name` VARCHAR(45) NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NULL,
+  `departments_departmentId` INT NOT NULL,
+  `year_yearId` INT NOT NULL,
+>>>>>>> f09d6fab4edd0b8f6b2d70c40fea78a9235bcc51
   PRIMARY KEY (`studentId`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
   INDEX `fk_students_department_idx` (`departmentId` ASC),
