@@ -1,11 +1,6 @@
 <?php
 // Connect to MySQL database
-$conn = mysqli_connect("localhost", "root", "Chandu@2002", "mydb");
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+ include 'db.php'; 
 
 // Check if form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -22,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // ✅ UPDATE existing record instead of INSERT
-    $sql = "UPDATE faculty 
+    $sql = "UPDATE staff
             SET name = '$name', email = '$email', password = '$password' 
             WHERE staffId = '$staffId'";
 
