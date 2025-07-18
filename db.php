@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $pass = ""; // include your password (If you have one)
-$dbname = "mydb";
+$dbname = "education_management";
 
 // Create connection
 $conn = mysqli_connect($host, $user, $pass, $dbname);

@@ -1,11 +1,6 @@
 <?php
-// Connect to MySQL (with database selected)
-$conn = mysqli_connect("localhost", "root", "", "mydb");
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+// Connect to MySQL database
+ include 'db.php'; 
 
 // Check if login form was submitted
 if (isset($_POST['btnn'])) {
@@ -18,13 +13,13 @@ if (isset($_POST['btnn'])) {
         exit();
     }
 
-    // Option 2: Check in admin table
-    $adminQuery = "SELECT * FROM admin WHERE adminId = '$username'";
-    $adminResult = mysqli_query($conn, $adminQuery);
+    // Option 2: Check in staff table
+    $staffQuery = "SELECT * FROM staff WHERE staffId = '$username'";
+    $staffResult = mysqli_query($conn, $staffQuery);
 
-    if (mysqli_num_rows($adminResult) > 0) {
-        $adminRow = mysqli_fetch_assoc($adminResult);
-        if ($password == $adminRow['password']) {
+    if (mysqli_num_rows($staffResult) > 0) {
+        $staffRow = mysqli_fetch_assoc($staffResult);
+        if ($password == $staffRow['password']) {
             header("Location: admin.html");
             exit();
         } else {
