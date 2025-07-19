@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
     background: rgb(255, 255, 255);
     font-family: Arial, sans-serif;
@@ -80,6 +86,9 @@ nav a:hover {
 .main {
     background-color: #f0f3fa;
     text-align: center;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
 }
 
 h1 {
@@ -173,19 +182,18 @@ button:hover {
     background: #222;
     color: #fff;
     text-align: center;
-    padding: 20px 0;
-    position:relative;
+    padding: 20px ;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
+
+#footer p {
+    color: white;
+    font-size: 16px;
+}
+
 #footer a {
     color: #ff7200;
     text-decoration: none;
-}
-
-#footer p{
-    margin: 0;
-    font-size: 0.9em;
-    color: #eafaf1;
-    font-weight: bold;
 }

@@ -11,14 +11,63 @@ body, html {
 
 /* Background and layout */
 .main {
-    height: 100vh;
-    background: linear-gradient(to top, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.5) 50%),
-                url(usj_cover-1557335254.jpg);
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(usj_cover-1557335254.jpg);
     background-position: center;
     background-size: cover;
+    height: 100vh;
+}
+.navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 20px 40px;
+}
+
+.icon{
+    width: 200px;
+    float: left;
+    height: 70px;
+}
+
+.logo{
+    color: #fff;
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+    padding-left: 20px;
+    float: left;
+    padding-top: 10px;
+    margin-top: 5px
+}
+
+.menu{
+    width: 400px;
+    float: left;
+    height: 70px;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu ul li {
+    margin-left:30px
+
+}
+
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover{
+    color: #ff7200;
 }
 
 /* Signup form container */
@@ -30,6 +79,11 @@ body, html {
     color: white;
     text-align: center;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    position: absolute;
+    top: 200px;      
+    left: 500px;     
+    transform: none; 
+    z-index: 2;
 }
 
 /* Heading style */
@@ -93,6 +147,7 @@ body, html {
     color: #ff7200;
     text-decoration: none;
 }
+/*Footer*/
 #footer {
     background: #222;
     color: #fff;

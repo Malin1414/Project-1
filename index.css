@@ -3,11 +3,6 @@
     padding: 0;
 }
 
-body, html {
-    height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 .main{
     width: 100%;
     background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(usj_cover-1557335254.jpg);
@@ -54,7 +49,6 @@ body, html {
 
 .menu ul li {
     margin-left:30px
-
 }
 
 ul li a{
@@ -159,7 +153,7 @@ ul li a:hover{
 
 .form{
     width: 300px;
-    height: 260px;
+    height: 320px;
     background: linear-gradient(to top, rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
     position: absolute;
     top: -20px;
@@ -195,26 +189,6 @@ ul li a:hover{
     letter-spacing: 1px;
     margin-top: 30px;
     font-family: sans-serif;
-}
-
-.form a {
-    display: inline-block;
-    color: #ff7200;
-    background: transparent;
-    text-decoration: underline;
-    margin-left: 100px;
-    font-weight: bold;
-    font-size: 16px;
-    margin-top: 10px;
-    transition: color 0.3s, background 0.3s;
-    border-radius: 5px;
-    padding: 4px 10px;
-}
-
-.form a:hover {
-    color: #fff;
-    background: #ff7200;
-    text-decoration: none;
 }
 
 .form input:focus{
@@ -257,26 +231,35 @@ ul li a:hover{
     text-decoration: none;
     color: #ff7200;
 }
-
-.form p{
+.liw{
+    padding-top: 15px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.icons a{
+    text-decoration: none;
     color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
-    text-align: left;
-    margin-top: 15px;
-    margin-bottom: 10px;
+}
+.icons ion-icon{
+    color: #fff;
+    font-size: 30px;
+    padding-left: 14px;
+    padding-top: 5px;
+    transition: 0.3s ease;
+}
+.icons ion-icon:hover{
+    color: #ff7200;
 }
 
 #footer {
     background: #222;
     color: #fff;
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0;
     position: relative;
     bottom: 0;
     width: 100%;
 }
-
 #footer a {
     color: #ff7200;
     text-decoration: none;
