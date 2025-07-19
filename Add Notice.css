@@ -1,5 +1,5 @@
 body {
-    background: white;
+    background:white;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -77,12 +77,13 @@ nav a:hover {
 	width: 100%;
 	float: left;
 	padding: 60px 0px 60px 0px;
+    background-color: #f0f3fa;
 }
 
 /*Form Section*/
 
 .form-container {
-    background-color: #a0d8ed;
+    background-color: #1ccdf1;
     border-radius: 8px;
     box-shadow: 0 8px 16px rgba(0, 8, 10, 0.2);
     padding: 30px;
@@ -174,7 +175,7 @@ textarea:focus {
     background: #222;
     color: #fff;
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0;
     position: relative;
     bottom: 0;
     width: 100%;
@@ -185,9 +186,3 @@ textarea:focus {
     text-decoration: none;
 }
 
-#footer p{
-    margin: 0;
-    font-size: 0.9em;
-    color: #eafaf1;
-    font-weight: bold;
-}

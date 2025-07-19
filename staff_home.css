@@ -78,7 +78,7 @@ nav a:hover {
 }
 
 .main {
-    background-color: #b3d1ec;
+    background-color: #f0f3fa;
     text-align: center;
 }
 
@@ -104,6 +104,7 @@ p {
     font-size: 1em;
     cursor: pointer;
     transition: background 0.3s;
+    
 }
 
 button {
@@ -136,13 +137,13 @@ button:hover {
 	margin-right: auto;
     margin-left: auto;
 	float: center;
-	background-color: #ffffff;
+	background-color: #1ccdf1;
     text-align: center;
     width: 75%;
 }
 
 .event i {
-	color: red;
+	color: rgb(180,16,14);
 	font-size: 14px;
 }
 
