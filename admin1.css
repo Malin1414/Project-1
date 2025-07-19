@@ -1,5 +1,5 @@
 body {
-    background: white;
+    background: rgb(255, 255, 255);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -136,9 +136,9 @@ button:hover {
 	margin-right: auto;
     margin-left: auto;
 	float: center;
-	background-color: #fff;
+	background-color: #ffffff;
     text-align: center;
-    
+    width: 75%;
 }
 
 .event i {
@@ -147,8 +147,7 @@ button:hover {
 }
 
 .event div {
-	padding: 5px;
-
+	padding: 10px;
 }
 
 .event .heading {
