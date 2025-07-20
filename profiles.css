@@ -8,9 +8,9 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-y: auto;   /* Allow vertical scroll */
 }
-
 
 .background {
     position: fixed;
@@ -20,18 +20,18 @@ body {
     height: 100%;
     background: url("usj_cover-1557335254.jpg") no-repeat center center fixed;
     background-size: cover;
-
+    z-index: -1;
 }
 
 /* Logo in top-right corner */
 .logo {
-    position: absolute;
+    position: fixed; /* Changed from absolute to fixed */
     top: 20px;
     right: 20px;
     width: 100px;
     height: auto;
     border-radius: 8px;
-    z-index: 2;
+    z-index: 1000;
 }
 
 /* ========== Profile Container ========== */
@@ -43,7 +43,8 @@ body {
     max-width: 500px;
     overflow: hidden;
     position: relative;
-    z-index: 1;
+    z-index: 100;
+    margin: 20px auto;
 }
 
 .profile-header {
@@ -105,40 +106,12 @@ body {
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
-
-
-     
+    box-sizing: border-box;
 }
-
 
 .action-btn a { 
     color: white; 
     text-decoration: none;
-
-
-}
-
-.action-btn {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin-top: 20px;
-  
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-
-.student .action-btn {
-    background-color: #ff7200; 
-}
-
-.student .action-btn:hover {
-    background-color: #ff7200; 
-   
 }
 
 .action-btn:hover {
@@ -152,7 +125,7 @@ body {
 }
 
 .student .action-btn:hover {
-    background-color: #ff7200;
+    background-color: #e65a00;
 }
 
 /* Staff specific styles */
@@ -162,7 +135,7 @@ body {
 }
 
 .staff .action-btn:hover {
-    background-color: #ff7200;
+    background-color: #e65a00;
 }
 
 /* Change Profile Picture Button (Different Color) */
@@ -172,15 +145,42 @@ body {
 }
 
 #change-profile-pic-btn:hover {
-    background-color: #ff7200
-
+    background-color: #ff7200;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ========== TABLET RESPONSIVE (768px - 1024px) ========== */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
     body {
-        flex-direction: column;
+        padding: 20px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        align-items: flex-start;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .profile-container {
+        width: 80%;
+        max-width: 600px;
+        margin: 60px auto 40px auto;
+    }
+
+    .logo {
+        width: 90px;
+        top: 15px;
+        right: 15px;
+    }
+}
+
+/* ========== MOBILE RESPONSIVE (up to 768px) ========== */
+@media screen and (max-width: 768px) {
+    body {
         padding: 10px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        align-items: flex-start;
+        justify-content: center;
+        min-height: 100vh;
     }
 
     .logo {
@@ -191,7 +191,7 @@ body {
 
     .profile-container {
         width: 95%;
-        margin-top: 80px;
+        margin: 80px auto 40px auto;
     }
 
     .profile-header h1 {
@@ -221,10 +221,24 @@ body {
     }
 }
 
-@media (max-width: 480px) {
+/* ========== SMALL MOBILE RESPONSIVE (up to 480px) ========== */
+@media screen and (max-width: 480px) {
+    body {
+        padding: 8px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        align-items: flex-start;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
     .profile-container {
         width: 98%;
-        margin-top: 90px;
+        margin: 90px auto 30px auto;
+    }
+
+    .profile-header {
+        padding: 15px;
     }
 
     .profile-header h1 {
@@ -236,6 +250,63 @@ body {
         height: 70px;
     }
 
-    .action-btn {
-        font-si
+    .profile-details {
+        padding: 15px;
+    }
 
+    .action-btn {
+        font-size: 0.8rem;
+        padding: 10px;
+        margin-top: 15px;
+    }
+
+    .detail-row {
+        padding: 10px 0;
+    }
+
+    .detail-label,
+    .detail-value {
+        font-size: 0.8rem;
+    }
+
+    .logo {
+        width: 60px;
+        top: 8px;
+        right: 8px;
+    }
+}
+
+/* ========== LANDSCAPE MOBILE ========== */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    body {
+        align-items: flex-start;
+        padding-top: 10px;
+        overflow-y: auto;
+    }
+
+    .profile-container {
+        margin: 60px auto 20px auto;
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .profile-header {
+        padding: 10px;
+    }
+
+    .profile-pic {
+        width: 60px;
+        height: 60px;
+        margin: 10px auto;
+    }
+
+    .profile-details {
+        padding: 15px;
+    }
+
+    .logo {
+        width: 50px;
+        top: 5px;
+        right: 5px;
+    }
+}
