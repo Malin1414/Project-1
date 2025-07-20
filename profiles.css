@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -42,7 +42,7 @@ body {
 
 /* ========== Profile Container ========== */
 .profile-container {
-    background-color: white;
+    background-color: rgb(12, 2, 2);
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 90%;
@@ -154,32 +154,31 @@ body {
 /* Student specific styles */
 .student .profile-header,
 .student .action-btn {
-    background-color: #2ecc71;
+    background-color: #ff7200;
 }
 
 .student .action-btn:hover {
-    background-color: #27ae60;
+    background-color: #ff7200;
 }
 
 /* Staff specific styles */
 .staff .profile-header,
 .staff .action-btn {
-    background-color: #2ecc71;
+    background-color: #ff7200;
 }
 
 .staff .action-btn:hover {
-    background-color: #27ae60;
+    background-color: #ff7200;
 }
 
 /* Change Profile Picture Button (Different Color) */
 #change-profile-pic-btn {
-    background-color: rgb(5 176 77 / 72%);
+    background-color: rgba(1, 6, 3, 0.72);
     margin-top: 10px;
 }
 
 #change-profile-pic-btn:hover {
-    background-color: rgb(5 157 69);
-}
+    background-color: #ff7200
 
 /* Responsive */
 @media (max-width: 480px) {
