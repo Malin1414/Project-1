@@ -20,25 +20,28 @@
     </div>
     <div class="container">
         <div class="container-box">
-        <form action="" method="POST">
+        <form action="st_info.php" method="POST">
             <h2>Registration</h2>
+
+            <input type="hidden" name="studentId" id="studentIdInput">
+
             <label for="name">Name</label>
-            <input type="name" id="name" name="name" required>
+            <input type="text" id="name" name="name" required>
 
             <label for="department">Department</label>
-            <select id="department" name="department">
+            <select id="departmentId" name="departmentId">
                 <option value="select_department" selected disabled hidden ></option>
-                <option value="computer_science">Computer Science</option>
-                <option value="software_engineering">Software Engineering</option>
-                <option value="information_system">Information System</option>
+                <option value="11">Computer Science</option>
+                <option value="12">Software Engineering</option>
+                <option value="13">Information System</option>
             </select>
 
-            <label for="">batch</label>
-            <select id="batch" name="batch">
+            <label for="batch">batch</label>
+            <select id="batchId" name="batchId">
                 <option value="select_batch" selected disabled hidden ></option>
-                <option value="1st">2022 batch</option>
-                <option value="2nd">2023 batch</option>
-                <option value="3rd">2024 batch</option>
+                <option value="22">2022/2023 batch</option>
+                <option value="23">2023/2024 batch</option>
+                <option value="24">2024/2025 batch</option>
             </select>
                 
             <label for="email">Email</label>
@@ -64,6 +67,8 @@
         <p>E-mail : <a href="mailto:info@sjp.ac.lk">info@sjp.ac.lk</a></p>
     </div>
 </footer>
+
+<script src="st_info.js"></script>
 
 </body>
 </html>

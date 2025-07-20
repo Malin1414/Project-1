@@ -14,15 +14,15 @@ body {
 	color: #242424;
 }
 
-.container {
-	width: 1300px;
+/*.container {
+	width: 1400px;
 	margin: 0px auto;
-}
+}*/
 
 /****************HEADER SECTION****************/
 .header {
 	background: #000;
-	padding: 6px;
+	padding: 10px;
 	
 	
 }
@@ -37,19 +37,22 @@ body {
 .header marquee {
 	font-size: 20px;
 	color: #fff;
-	width: 80%;
+	width: 100%;
 }
+
 
 /**********LOGO SECTION**********/
 .logo {
 	height: 65px;
+	margin-top: 8px;
+	margin-left: 35px;
 	
 }
 
 /**********MENU SECTION**********/
 nav {
 	float: right;
-	padding: 25px 0px;
+	padding: 35px 0px;
 
 }
 
@@ -72,7 +75,7 @@ nav a:hover {
 .main-section {
 	width: 100%;
 	float: left;
-	padding: 60px 0px 60px 0px;
+	padding: 60px 0px 60px 60px;
 }
 
 .event1 {
@@ -146,82 +149,7 @@ nav a:hover {
 
 
 
-/****************ABOUT US SECTION****************/
-.heading {
-	font-size: 28px;
-	font-weight: 500;
-	margin-bottom: 30px;
-	color: #0055a4;
-}
 
-.subhead {
-	font-size: 28px;
-	color: red;
-	font-weight: 500;
-}
-
-.about-us div {
-	width: 45%;
-	float: left;
-	line-height: 30px;
-	font-size: 18px;
-	
-}
-
-
-
-.about-us p {
-	font-size: 16px;
-	margin-bottom: 20px;
-	padding-right: 30px;
-	line-height: 23px;
-}
-
-.about-us img {
-	width: 40%;
-	float: left;
-}
-
-/****************AWARD SECTION****************/
-.award p {
-	width: 100%;
-	float: left;
-	font-size: 16px;
-}
-
-.award img {
-	width: 100%;
-}
-
-.award b {
-	min-width: 115px;
-	float: left;
-	margin-bottom: 20px;
-}
-
-.award h3 {
-	font-size: 23px;
-	margin-bottom: 20px;
-	text-align: center;
-}
-
-/****************CHAIRMAN SECTION****************/
-.chairman img {
-	width: 150px;
-	float: left;
-	margin-right: 10px;
-}
-
-.chairman h2 {
-	font-size: 22px;
-	margin-top: 30px;
-}
-
-.chairman h4 {
-	font-size: 16px;
-	color: red;
-	font-weight: 400;
-}
 
 
 
