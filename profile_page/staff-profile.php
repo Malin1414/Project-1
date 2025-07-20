@@ -1,6 +1,3 @@
- <?php
- include 'db.php';
- ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +17,11 @@
     <div class="profile-container">
         <header class="profile-header">
             <h1>Staff Profile</h1>
-            <div class="profile-pic"></div>
+            <div class="profile-pic" id="profile-pic"></div>
+            
+            <!-- Hidden File Input & Button -->
+            <input type="file" id="upload-profile-pic" accept="image/*" style="display: none;">
+            <button id="change-profile-pic-btn" class="action-btn">Change Profile Picture</button>
         </header>
         
         <main class="profile-details">

@@ -17,7 +17,11 @@
     <div class="profile-container">
         <header class="profile-header">
             <h1>Student Profile</h1>
-            <div class="profile-pic"></div>
+            <div class="profile-pic" id="profile-pic"></div>
+
+            <!-- Hidden File Input & Button -->
+            <input type="file" id="upload-profile-pic" accept="image/*" style="display: none;">
+            <button id="change-profile-pic-btn" class="action-btn">Change Profile Picture</button>
         </header>
         
         <main class="profile-details">
@@ -43,7 +47,7 @@
             </div>
             <div class="detail-row">
                 <span class="detail-label">Status :</span>
-                <span class="detail-value" id="staff-email">Enrolled</span>
+                <span class="detail-value" id="student-status">Enrolled</span>
             </div>
             
             <button id="change-password-btn" class="action-btn">Change Password</button>
