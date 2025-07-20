@@ -152,3 +152,69 @@ form button{
     color: #ff7200;
     text-decoration: none;
 }
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    .icon, .logo {
+        width: 100%;
+        text-align: center;
+        font-size: 26px;
+        padding-left: 0;
+        padding-top: 5px;
+        margin-top: 0;
+    }
+
+    .menu {
+        width: 100%;
+        float: none;
+        height: auto;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu ul li {
+        margin: 10px 0;
+    }
+
+    .container {
+        padding: 20px 10px;
+        height: auto;
+        display: block;
+    }
+
+    .container-box {
+        width: 100%;
+        max-width: 95vw;
+        height: auto;
+        padding: 20px 15px;
+        margin: 80px auto 20px auto;
+    }
+
+    .container-box h2 {
+        font-size: 20px;
+    }
+
+    form input,
+    form select,
+    form button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    form button {
+        letter-spacing: 2px;
+    }
+
+    #footer {
+        font-size: 14px;
+        padding: 8px 0;
+    }
+}
+

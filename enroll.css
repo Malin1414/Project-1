@@ -12,37 +12,39 @@ body, html {
 /* Background and layout */
 .main {
     width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(usj_cover-1557335254.jpg);
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.5) 50%), 
+                url(usj_cover-1557335254.jpg);
     background-position: center;
     background-size: cover;
-    height: 100vh;
+    background-repeat: no-repeat;
+    min-height: 100vh;
 }
+
+/* NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
+    flex-wrap: wrap;
 }
 
-.icon{
-    width: 200px;
-    float: left;
+.icon {
+    width: auto;
     height: 70px;
 }
 
-.logo{
+.logo {
     color: #fff;
     font-size: 35px;
     font-family: 'Times New Roman', Times, serif;
     padding-left: 20px;
-    float: left;
     padding-top: 10px;
-    margin-top: 5px
+    margin-top: 5px;
 }
 
-.menu{
-    width: 400px;
-    float: left;
+.menu {
+    width: auto;
     height: 70px;
 }
 
@@ -51,14 +53,14 @@ body, html {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .menu ul li {
-    margin-left:30px
-
+    margin-left: 30px;
 }
 
-ul li a{
+ul li a {
     text-decoration: none;
     color: #fff;
     font-family: Arial;
@@ -66,13 +68,13 @@ ul li a{
     transition: 0.4s ease-in-out;
 }
 
-ul li a:hover{
+ul li a:hover {
     color: #ff7200;
 }
 
-/* Signup form container */
+/* SIGNUP FORM */
 .signup-box {
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.8) 50%);
+    background: rgba(0, 0, 0, 0.8);
     padding: 30px 25px;
     border-radius: 10px;
     width: 300px;
@@ -80,13 +82,12 @@ ul li a:hover{
     text-align: center;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     position: absolute;
-    top: 200px;      
-    left: 500px;     
-    transform: none; 
+    top: 200px;
+    left: 500px;
+    transform: none;
     z-index: 2;
 }
 
-/* Heading style */
 .signup-box h2 {
     color: #ff7200;
     background-color: #fff;
@@ -96,7 +97,7 @@ ul li a:hover{
     font-family: 'Times New Roman', Times, serif;
 }
 
-/* Input fields */
+/* INPUT FIELDS */
 .signup-box input {
     width: 100%;
     height: 35px;
@@ -118,7 +119,7 @@ ul li a:hover{
     outline: none;
 }
 
-/* Signup button */
+/* BUTTON */
 .btnn {
     width: 100%;
     height: 40px;
@@ -137,7 +138,7 @@ ul li a:hover{
     color: #ff7200;
 }
 
-/* Link to login */
+/* LINK BELOW FORM */
 .link {
     margin-top: 20px;
     font-size: 14px;
@@ -147,7 +148,8 @@ ul li a:hover{
     color: #ff7200;
     text-decoration: none;
 }
-/*Footer*/
+
+/* FOOTER */
 #footer {
     background: #222;
     color: #fff;
@@ -157,7 +159,77 @@ ul li a:hover{
     bottom: 0;
     width: 100%;
 }
+
 #footer a {
     color: #ff7200;
     text-decoration: none;
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .menu {
+        width: 100%;
+        float: none;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        gap: 10px;
+        padding-left: 0;
+    }
+
+    .signup-box {
+        width: 90vw;
+        left: 50%;
+        top: 120px;
+        transform: translateX(-50%);
+        position: relative;
+        margin: 0 auto;
+        padding: 25px 15px;
+    }
+
+    .logo {
+        font-size: 24px;
+        padding: 0;
+        margin-top: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .btnn {
+        font-size: 15px;
+    }
+
+    .signup-box input {
+        font-size: 15px;
+    }
+
+    #footer {
+        font-size: 14px;
+        padding: 12px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .signup-box {
+        padding: 18px 10px;
+    }
+
+    .signup-box h2 {
+        font-size: 18px;
+    }
+
+    .btnn {
+        font-size: 14px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
 }
