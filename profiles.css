@@ -11,7 +11,7 @@ body {
     overflow: hidden;
 }
 
-/* Blurred full-screen background */
+
 .background {
     position: fixed;
     top: 0;
@@ -20,8 +20,8 @@ body {
     height: 100%;
     background: url('../usj_cover-1557335254.jpg') no-repeat center center fixed;
     background-size: cover;
-    filter: blur(6px); /* Adjust blur */
-    z-index: -1; /* Send behind content */
+    
+    z-index: -1; 
 }
 
 /* Logo in top-right corner */
@@ -105,6 +105,40 @@ body {
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
+
+
+     
+}
+
+
+.action-btn a { 
+    color: white; 
+    text-decoration: none;
+
+
+}
+
+.action-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+  
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.student .action-btn {
+    background-color: #ff7200; 
+}
+
+.student .action-btn:hover {
+    background-color: #ff7200; 
+   
 }
 
 .action-btn:hover {
