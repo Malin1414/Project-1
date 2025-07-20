@@ -23,12 +23,10 @@
         <form action="staff_Info.php" method="post">
             <h2>Registration</h2>
 
-            <!-- Hidden staffId field from enroll.html -->
-            <input type="hidden" name="staffId" value="<?php echo isset($_GET['staffId']) ? htmlspecialchars($_GET['staffId']) : ''; ?>">
-
+            <input type="hidden" name="staffId" id="staffIdInput">
 
             <label for="name">Name</label>
-            <input type="name" id="name" name="name" required>
+            <input type="text" id="name" name="name" required>
 
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
@@ -53,5 +51,7 @@
             <p>E-mail : <a href="mailto:info@sjp.ac.lk">info@sjp.ac.lk</a></p>
         </div>
     </footer>
+
+    <script src="staff_Info.js"></script>
 </body>
 </html>
