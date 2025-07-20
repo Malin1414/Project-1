@@ -180,6 +180,8 @@ body {
 #change-profile-pic-btn:hover {
     background-color: #ff7200
 
+}
+
 /* Responsive */
 @media (max-width: 480px) {
     .profile-container {
