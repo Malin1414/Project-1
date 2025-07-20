@@ -20,13 +20,7 @@ body {
     height: 100%;
     background: url('../usj_cover-1557335254.jpg') no-repeat center center fixed;
     background-size: cover;
-<<<<<<< HEAD:profiles.css
-    
-    z-index: -1; 
-=======
-    filter: blur(6px);
-    z-index: -1;
->>>>>>> c745e92b0cb5299c216785607d850222ef41903f:profile_page/profiles.css
+
 }
 
 /* Logo in top-right corner */
