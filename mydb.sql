@@ -98,6 +98,7 @@ CREATE TABLE `staff` (
   `name` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
+  `profile_picture` VARCHAR(500) NULL,
   `status` enum('Enrolled','Not Enrolled') NOT NULL DEFAULT 'Not Enrolled',
   PRIMARY KEY (`staffId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -119,6 +120,7 @@ CREATE TABLE `notice` (
   `noticeId` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
   `description` text NOT NULL,
+  `attachment` varchar(500) NULL,
   `date` date NOT NULL,
   `staffId` varchar(10) NOT NULL,
   PRIMARY KEY (`noticeId`),
@@ -183,6 +185,7 @@ CREATE TABLE `students` (
   `name` varchar(45) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(45) DEFAULT NULL,
+  `profile_picture` VARCHAR(500) NULL,
   `departmentId` int(11) DEFAULT NULL,
   `batchId` int(11) DEFAULT NULL,
   `status` enum('Enrolled','Not Enrolled') NOT NULL DEFAULT 'Not Enrolled',

@@ -168,6 +168,286 @@ button:hover {
 	list-style: none;
 }
 
+/* Additional styles for notice display */
+.notice-item {
+    background: white;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: left;
+    position: relative;
+}
+
+.notice-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.notice-actions button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.notice-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+    padding-right: 120px;
+}
+
+.notice-date {
+    color: #c0132a;
+    font-style: italic;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.notice-description {
+    color: #555;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.notice-attachment {
+    background: #f8f9fa;
+    padding: 8px;
+    border-radius: 3px;
+    border-left: 3px solid #c0132a;
+}
+
+.notice-attachment a {
+    color: #c0132a;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.notice-attachment a:hover {
+    text-decoration: underline;
+}
+
+.no-notices-home {
+    padding: 40px;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+.no-notices-home a {
+    color: #c0132a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.no-notices-home a:hover {
+    text-decoration: underline;
+}
+
+#message-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.message {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.message.success {
+    background-color: #2e4fd5;
+}
+
+.message.error {
+    background-color: #dc3545;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(2px);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    max-height: 85vh;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+    overflow-y: auto;
+    animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+    from { 
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #c0132a;
+    text-decoration: none;
+}
+
+.modal h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    font-size: 24px;
+} 
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+     width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #c0132a;
+    box-shadow: 0 0 0 2px rgba(192, 19, 42, 0.1);
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.checkbox-group {
+    max-height: 120px;
+    overflow-y: auto;
+    border: 2px solid #ddd;
+    padding: 15px;
+    border-radius: 6px;
+    background: white;
+}
+
+.checkbox-group div {
+    margin-bottom: 8px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    margin-bottom: 0;
+    cursor: pointer;
+    padding: 2px 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.form-buttons button {
+    padding: 12px 25px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 100px;
+}
+
+.form-buttons button[type="submit"] {
+    background: #c0132a;
+    color: white;
+    border: none;
+}
+
+.form-buttons button[type="submit"]:hover {
+    background: #a0112a;
+    transform: translateY(-1px);
+}
+
+.form-buttons button[type="button"] {
+    background: #6c757d;
+    color: white;
+    border: none;
+}
+
+.form-buttons button[type="button"]:hover {
+    background: #5a6268;
+    transform: translateY(-1px);
+}
+
 /************* Footer Section *****************/
 #footer {
     background: #222;
@@ -188,6 +468,8 @@ button:hover {
     color: #ff7200;
     text-decoration: none;
 }
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
@@ -252,6 +534,23 @@ button:hover {
 
   .event ul li {
     font-size: 14px;
+  }
+
+  .modal-content {
+    margin: 10% auto;
+    width: 95%;
+    padding: 20px;
+    max-height: 90vh;
+  }
+
+  .notice-actions {
+    position: static;
+    text-align: right;
+    margin-bottom: 10px;
+  }
+
+  .notice-title {
+    padding-right: 0;
   }
 
   #footer {

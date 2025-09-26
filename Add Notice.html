@@ -28,7 +28,7 @@
                 <div class="form-container">
             
                     <h1>Add New Notice</h1>
-                    <form id="noticeForm">
+                    <form id="noticeForm" method="POST" action="Add Notice.php" enctype="multipart/form-data">
 
                     <div class="form-group">
                         <label for="noticeTitle">Notice Title*</label>
@@ -43,18 +43,18 @@
                     <div class="selection">
                         <label>Department*</label>
                         <div class="checkbox-group">
-                            <label><input type="checkbox" name="department" value="Computer Science"> Computer Science</label>
-                            <label><input type="checkbox" name="department" value="Software Engineering"> Software Engineering</label>
-                            <label><input type="checkbox" name="department" value="Information System"> Information System</label>
+                            <label><input type="checkbox" name="department[]" value="Computer Science"> Computer Science</label>
+                            <label><input type="checkbox" name="department[]" value="Software Engineering"> Software Engineering</label>
+                            <label><input type="checkbox" name="department[]" value="Information System"> Information System</label>
                         </div>
                     </div>
 
                     <div class="selection">
                         <label>Batch*</label>
                         <div class="checkbox-group">
-                            <label><input type="checkbox" name="batch" value="2021/22"> 2021/22</label>
-                            <label><input type="checkbox" name="batch" value="2022/23"> 2022/23</label>
-                            <label><input type="checkbox" name="batch" value="2023/24"> 2023/24</label>
+                            <label><input type="checkbox" name="batch[]" value="2021/22"> 2021/22</label>
+                            <label><input type="checkbox" name="batch[]" value="2022/23"> 2022/23</label>
+                            <label><input type="checkbox" name="batch[]" value="2023/24"> 2023/24</label>
                         </div>
                     </div>
             
@@ -79,22 +79,30 @@
         </footer>
 
         <script>
-          
             const noticeForm = document.getElementById('noticeForm');
-
-           
+        
             noticeForm.addEventListener('submit', function(event) {
-               
-                event.preventDefault();
-
-               
-
-         
-                console.log('Form submitted!'); 
-
-               
-                    window.location.href = 'staff_home.html';
-              
+                // Check if at least one department is selected
+                const departments = document.querySelectorAll('input[name="department[]"]:checked');
+                const batches = document.querySelectorAll('input[name="batch[]"]:checked');
+                
+                // Validate department selection
+                if (departments.length === 0) {
+                    event.preventDefault(); // Only prevent if validation fails
+                    alert('Please select at least one department.');
+                    return false;
+                }
+                
+                // Validate batch selection
+                if (batches.length === 0) {
+                    event.preventDefault(); // Only prevent if validation fails
+                    alert('Please select at least one batch.');
+                    return false;
+                }
+                
+                // If validation passes, allow the form to submit normally
+                console.log('Form validation passed, submitting to PHP...');
+                // Don't call event.preventDefault() here - let the form submit naturally
             });
         </script>
     </body>
