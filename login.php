@@ -1,4 +1,7 @@
 <?php
+// START SESSION FIRST
+session_start();
+
 // Connect to MySQL database
  include 'db.php'; 
 
@@ -14,16 +17,24 @@ if (isset($_POST['btnn'])) {
 
     if (mysqli_num_rows($staffResult) > 0) {
         $staffRow = mysqli_fetch_assoc($staffResult);
+        
+        // Check status first
+        if ($staffRow['status'] === 'Not Enrolled') {
+            echo "<script>alert('You have not enrolled yet.'); window.location.href='enroll.html';</script>";
+            exit();
+        }
+        
+        // If enrolled, check hashed password
         if (password_verify($password, $staffRow['password'])) {
-            if ($staffRow['status'] === 'Enrolled') {
-                header("Location: staff_home.html");
-                exit();
-            } else {
-                echo "<script>alert('You have not enrolled yet.'); window.location.href='index.php';</script>";
-                exit();
-            }
+            // SET SESSION VARIABLES FOR STAFF
+            $_SESSION['staffId'] = $staffRow['staffId']; // Store the actual staff ID
+            $_SESSION['logged_in'] = true;
+            $_SESSION['user_type'] = 'staff'; // Optional: track user type
+
+            header("Location: staff_home.html");
+            exit();
         } else {
-            echo "<script>alert('Incorrect password'); window.location.href='index.php';</script>";
+            echo "<script>alert('Incorrect password'); window.location.href='login.html';</script>";
             exit();
         }
     }
@@ -33,22 +44,30 @@ if (isset($_POST['btnn'])) {
 
     if (mysqli_num_rows($studentResult) > 0) {
         $studentRow = mysqli_fetch_assoc($studentResult);
+        
+        // Check status first
+        if ($studentRow['status'] === 'Not Enrolled') {
+            echo "<script>alert('You have not enrolled yet.'); window.location.href='enroll.html';</script>";
+            exit();
+        }
+        
+        // If enrolled, check hashed password
         if (password_verify($password, $studentRow['password'])) {
-            if ($studentRow['status'] === 'Enrolled') {
-                header("Location: student_home.html");
-                exit();
-            } else {
-                echo "<script>alert('You have not enrolled yet.'); window.location.href='index.php';</script>";
-                exit();
-            }
+            // SET SESSION VARIABLES FOR STUDENT
+            $_SESSION['studentId'] = $studentRow['studentId']; // Store the actual student ID
+            $_SESSION['logged_in'] = true;
+            $_SESSION['user_type'] = 'student'; // Optional: track user type
+            
+            header("Location: student_home.html");
+            exit();
         } else {
-            echo "<script>alert('Incorrect password'); window.location.href='index.php';</script>";
+            echo "<script>alert('Incorrect password'); window.location.href='login.html';</script>";
             exit();
         }
     }
 
 
     // If no match in either table
-    echo "<script>alert('User not found'); window.location.href='index.php';</script>";
+    echo "<script>alert('User not found'); window.location.href='login.html';</script>";
 }
 ?>

@@ -14,29 +14,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($student = $studentResult->fetch_assoc()) {
         if ($student['status'] === 'Enrolled') {
-            // Password is hashed after enrollment
-            if (password_verify($password, $student['password'])) {
-                echo "<script>
-                    sessionStorage.setItem('studentId', '$username');
-                    window.location.href = 'st_info.html';
-                </script>";
-                exit();
-            } else {
-                echo "<script>alert('Incorrect password'); window.location.href='login.html';</script>";
-                exit();
-            }
+            echo "<script>
+                alert('You are already enrolled');
+                window.location.href = 'login.html';
+            </script>";
+            exit();
+        } else if ($student['status'] === 'Not Enrolled' && $password === $student['password']) {
+            echo "<script>
+                sessionStorage.setItem('studentId', '$username');
+                window.location.href = 'st_info.html';
+            </script>";
+            exit();
         } else {
-            // Before enrollment, compare plain text password
-            if ($password === $student['password']) {
-                echo "<script>
-                    sessionStorage.setItem('studentId', '$username');
-                    window.location.href = 'st_info.html';
-                </script>";
-                exit();
-            } else {
-                echo "<script>alert('Incorrect password'); window.location.href='login.html';</script>";
-                exit();
-            }
+            echo "<script>alert('Incorrect password'); window.location.href='enroll.html';</script>";
+            exit();
         }
     }
 
@@ -48,29 +39,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($staff = $staffResult->fetch_assoc()) {
         if ($staff['status'] === 'Enrolled') {
-            // Password is hashed after enrollment
-            if (password_verify($password, $staff['password'])) {
-                echo "<script>
-                    sessionStorage.setItem('staffId', '$username');
-                    window.location.href = 'staff_Info.html';
-                </script>";
-                exit();
-            } else {
-                echo "<script>alert('Incorrect password'); window.location.href='login.html';</script>";
-                exit();
-            }
+            echo "<script>
+                alert('You are already enrolled');
+                window.location.href = 'login.html';
+            </script>";
+            exit();
+        } else if ($staff['status'] === 'Not Enrolled' && $password === $staff['password']) {
+            echo "<script>
+                sessionStorage.setItem('staffId', '$username');
+                window.location.href = 'staff_Info.html';
+            </script>";
+            exit();
         } else {
-            // Before enrollment, compare plain text password
-            if ($password === $staff['password']) {
-                echo "<script>
-                    sessionStorage.setItem('staffId', '$username');
-                    window.location.href = 'staff_Info.html';
-                </script>";
-                exit();
-            } else {
-                echo "<script>alert('Incorrect password'); window.location.href='login.html';</script>";
-                exit();
-            }
+            echo "<script>alert('Incorrect password'); window.location.href='enroll.html';</script>";
+            exit();
         }
     }
 

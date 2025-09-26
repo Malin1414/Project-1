@@ -10,6 +10,9 @@
     <div class="header">
        <marquee>University of Sri Jayewardenepura</marquee>
     </div>
+
+    <div id="message-container"></div>
+
 <!----MENU SECTION----->
         <div class="container">
           <img src="logo.jpg" class="logo" alt="Admin Logo">
@@ -26,75 +29,122 @@
         <button class="button1">Add a new notice</button> </a>
         <div class="event">
         <h2 class="heading">Your notices</h2>
-        <div>
-            <ul>
-                <li>
-                    <i>23-May-2025 :</i> The Faculty of Urban and Aquatic Bioresource held its orientation program for the new student intake on May 21, 2025, at the faculty premises. 
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </li>
-                <li>
-                    <i>01-Jun-2025 :</i> Notice 2
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </li>
-                <li>
-                    <i>11-Jun-2025 :</i> Notice 3
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </li>
-                <li>
-                    <i>18-Jun-2025 :</i> Notice 4
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </li>
-                <li>
-                    <i>21-Jun-2025 :</i> Notice 5
-                    <button>Edit</button>
-                    <button>Delete</button>             
-                </li>
-                <li>
-                    <i>22-Jun-2025 :</i> Notice 6
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </li>
-                <li>
-                    <i>26-Jun-2025 :</i> Notice 7
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </li>
-                <li>
-                    <i>02-Jul-2025 :</i> Notice 8
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </li>
-                <li>
-                    <i>08-Jul-2025 :</i> Notice 9 
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </li>
-                <li>
-                    <i>10-Jul-2025  :</i> Notice 10
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </li>
-                <li>
-                    <i>12-Jul-2025 :</i> Notice 11
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </li>
-                <li>
-                    <i>15-Jul-2025 :</i> Notice 12
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </li>
-            </ul>
-           
+        <div id="notices-container">
+            <!-- Static fallback content - will be hidden when JS loads successfully -->
+            <div id="fallback-notices">
+                <ul>
+                    <li>
+                        <i>23-May-2025 :</i> The Faculty of Urban and Aquatic Bioresource held its orientation program for the new student intake on May 21, 2025, at the faculty premises. 
+                        <button onclick="showJSRequiredMessage()">Edit</button>
+                        <button onclick="showJSRequiredMessage()">Delete</button>
+                    </li>
+                    <li>
+                        <i>01-Jun-2025 :</i> Notice 2
+                        <button onclick="showJSRequiredMessage()">Edit</button>
+                        <button onclick="showJSRequiredMessage()">Delete</button>
+                    </li>
+                    <li>
+                        <i>11-Jun-2025 :</i> Notice 3
+                        <button onclick="showJSRequiredMessage()">Edit</button>
+                        <button onclick="showJSRequiredMessage()">Delete</button>
+                    </li>
+                    <li>
+                        <i>18-Jun-2025 :</i> Notice 4
+                        <button onclick="showJSRequiredMessage()">Edit</button>
+                        <button onclick="showJSRequiredMessage()">Delete</button>
+                    </li>
+                    <li>
+                        <i>21-Jun-2025 :</i> Notice 5
+                        <button onclick="showJSRequiredMessage()">Edit</button>
+                        <button onclick="showJSRequiredMessage()">Delete</button>             
+                    </li>
+                    <li>
+                        <i>22-Jun-2025 :</i> Notice 6
+                        <button onclick="showJSRequiredMessage()">Edit</button>
+                        <button onclick="showJSRequiredMessage()">Delete</button>
+                    </li>
+                    <li>
+                        <i>26-Jun-2025 :</i> Notice 7
+                        <button onclick="showJSRequiredMessage()">Edit</button>
+                        <button onclick="showJSRequiredMessage()">Delete</button>
+                    </li>
+                    <li>
+                        <i>02-Jul-2025 :</i> Notice 8
+                        <button onclick="showJSRequiredMessage()">Edit</button>
+                        <button onclick="showJSRequiredMessage()">Delete</button>
+                    </li>
+                    <li>
+                        <i>08-Jul-2025 :</i> Notice 9 
+                        <button onclick="showJSRequiredMessage()">Edit</button>
+                        <button onclick="showJSRequiredMessage()">Delete</button>
+                    </li>
+                    <li>
+                        <i>10-Jul-2025  :</i> Notice 10
+                        <button onclick="showJSRequiredMessage()">Edit</button>
+                        <button onclick="showJSRequiredMessage()">Delete</button>
+                    </li>
+                    <li>
+                        <i>12-Jul-2025 :</i> Notice 11
+                        <button onclick="showJSRequiredMessage()">Edit</button>
+                        <button onclick="showJSRequiredMessage()">Delete</button>
+                    </li>
+                    <li>
+                        <i>15-Jul-2025 :</i> Notice 12
+                        <button onclick="showJSRequiredMessage()">Edit</button>
+                        <button onclick="showJSRequiredMessage()">Delete</button>
+                    </li>
+                </ul>
+            </div>
+            <!-- Dynamic content will be inserted here -->
+            <div id="dynamic-notices" style="display: none;"></div>
         </div>
         </div>
     </div>
 
-
+<!-- Edit Modal -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeEditModal()">&times;</span>
+        <h2>Edit Notice</h2>
+        <form id="editForm" enctype="multipart/form-data">
+            <input type="hidden" name="action" value="update">
+            <input type="hidden" name="noticeId" id="editNoticeId">
+            
+            <div class="form-group">
+                <label for="editTitle">Title:</label>
+                <input type="text" id="editTitle" name="title" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="editDescription">Description:</label>
+                <textarea id="editDescription" name="description" required></textarea>
+            </div>
+                        
+            <div class="form-group">
+                <label>Departments:</label>
+                <div id="editDepartments" class="checkbox-group">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Batches:</label>
+                <div id="editBatches" class="checkbox-group">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="editAttachment">New Attachment (optional):</label>
+                <input type="file" id="editAttachment" name="attachment">
+                <small style="color: #666;">Leave empty to keep current attachment</small>
+            </div>
+            
+            <div class="form-buttons">
+                <button type="submit">Update Notice</button>
+                <button type="button" onclick="closeEditModal()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <!---FOOTER SECTION--->
 <footer id="footer">
@@ -104,5 +154,254 @@
             <p>E-mail : <a href="mailto:info@sjp.ac.lk">info@sjp.ac.lk</a></p>
         </div>
 </footer>
+
+<script>
+// Global flag to track if dynamic loading is successful
+let dynamicContentLoaded = false;
+
+// Load notices when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadNotices();
+});
+
+function loadNotices() {
+    fetch('staff_home.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'action=get_notices'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            displayNotices(data.notices);
+            dynamicContentLoaded = true;
+        } else if (data.error) {
+            // Handle not logged in
+            window.location.href = 'login.php';
+        } else {
+            showMessage(data.message, 'error');
+        }
+    })
+    .catch(error => {
+        console.error('Error loading notices:', error);
+        showMessage('Error loading notices. Showing fallback content.', 'error');
+    });
+}
+
+function displayNotices(notices) {
+    const fallbackContainer = document.getElementById('fallback-notices');
+    const dynamicContainer = document.getElementById('dynamic-notices');
+    
+    // Hide fallback content and show dynamic content
+    fallbackContainer.style.display = 'none';
+    dynamicContainer.style.display = 'block';
+
+    if (notices.length === 0) {
+        dynamicContainer.innerHTML = '<div class="no-notices-home">You haven\'t created any notices yet. <a href="Add Notice.html">Create your first notice</a></div>';
+        return;
+    }
+    
+    let html = '';
+    notices.forEach(notice => {
+        html += `
+            <div class="notice-item" id="notice-${notice.noticeId}">
+                <div class="notice-actions">
+                    <button class="btn-edit" onclick="editNotice(${notice.noticeId})">Edit</button>
+                    <button class="btn-delete" onclick="deleteNotice(${notice.noticeId})">Delete</button>
+                </div>
+                <div class="notice-title">${escapeHtml(notice.title)}</div>
+                <div class="notice-date">${notice.formattedDate}</div>
+                <div class="notice-description">
+                    ${escapeHtml(notice.description).replace(/\n/g, '<br>')}
+                </div>
+                ${notice.attachment ? `<div class="notice-attachment"><strong>Attachment:</strong> <a href="${escapeHtml(notice.attachment)}" target="_blank">View File</a></div>` : ''}
+            </div>
+        `;
+    });
+    
+    dynamicContainer.innerHTML = html;
+}
+
+// Function for fallback buttons when JS functionality is limited
+function showJSRequiredMessage() {
+    alert('This feature requires JavaScript and server connectivity. Please ensure JavaScript is enabled and try refreshing the page.');
+}
+
+function editNotice(noticeId) {
+    if (!dynamicContentLoaded) {
+        showJSRequiredMessage();
+        return;
+    }
+
+    fetch('staff_home.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'action=get_notice&noticeId=' + noticeId
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            document.getElementById('editNoticeId').value = noticeId;
+            document.getElementById('editTitle').value = data.notice.title;
+            document.getElementById('editDescription').value = data.notice.description;
+            
+            // Load departments and batches, then show modal
+            loadDepartmentsAndBatches(data.notice);
+        } else {
+            showMessage(data.message, 'error');
+        }
+    })
+    .catch(error => {
+        showMessage('Error loading notice data', 'error');
+    });
+}
+
+function loadDepartmentsAndBatches(notice) {
+    fetch('staff_home.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'action=get_departments_batches'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            populateSelectOptions('editDepartments', data.departments, notice.departments || []);
+            populateSelectOptions('editBatches', data.batches, notice.batches || []);
+            document.getElementById('editModal').style.display = 'block';
+        } else {
+            showMessage('Error loading departments and batches', 'error');
+        }
+    })
+    .catch(error => {
+        showMessage('Error loading form data', 'error');
+    });
+}
+
+function populateSelectOptions(selectId, options, selectedValues) {
+    const select = document.getElementById(selectId);
+    select.innerHTML = '';
+    
+    options.forEach(option => {
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.name = selectId + '[]';
+        checkbox.value = option.id;
+        checkbox.id = selectId + '_' + option.id;
+        
+        if (selectedValues.includes(option.id.toString())) {
+            checkbox.checked = true;
+        }
+        
+        const label = document.createElement('label');
+        label.htmlFor = checkbox.id;
+        label.appendChild(checkbox);
+        label.appendChild(document.createTextNode(' ' + option.name));
+        
+        const div = document.createElement('div');
+        div.appendChild(label);
+        select.appendChild(div);
+    });
+}
+
+function deleteNotice(noticeId) {
+    if (!dynamicContentLoaded) {
+        showJSRequiredMessage();
+        return;
+    }
+
+    if (confirm('Are you sure you want to delete this notice?')) {
+        fetch('staff_home.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'action=delete&noticeId=' + noticeId
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById('notice-' + noticeId).remove();
+                showMessage(data.message, 'success');
+                
+                // Check if no notices left in dynamic container
+                const dynamicContainer = document.getElementById('dynamic-notices');
+                if (dynamicContainer.children.length === 0) {
+                    dynamicContainer.innerHTML = '<div class="no-notices-home">You haven\'t created any notices yet. <a href="Add Notice.html">Create your first notice</a></div>';
+                }
+            } else {
+                showMessage(data.message, 'error');
+            }
+        })
+        .catch(error => {
+            showMessage('Error deleting notice', 'error');
+        });
+    }
+}
+
+function closeEditModal() {
+    document.getElementById('editModal').style.display = 'none';
+}
+
+function showMessage(message, type) {
+    const messageContainer = document.getElementById('message-container');
+    messageContainer.innerHTML = '<div class="message ' + type + '">' + message + '</div>';
+    setTimeout(() => {
+        messageContainer.innerHTML = '';
+    }, 3000);
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Handle edit form submission
+document.getElementById('editForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    if (!dynamicContentLoaded) {
+        showJSRequiredMessage();
+        return;
+    }
+    
+    const formData = new FormData(this);
+    
+    fetch('staff_home.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showMessage(data.message, 'success');
+            closeEditModal();
+            setTimeout(() => {
+                loadNotices(); // Reload notices
+            }, 1000);
+        } else {
+            showMessage(data.message, 'error');
+        }
+    })
+    .catch(error => {
+        showMessage('Error updating notice', 'error');
+    });
+});
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('editModal');
+    if (event.target === modal) {
+        closeEditModal();
+    }
+}
+</script>
+
 </body>
 </html>
