@@ -25,11 +25,25 @@
     </nav>
   </div>
 
+    <!-- Loading indicator -->
+  <div id="loading-indicator" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: white; padding: 20px; border-radius: 8px; display: none; z-index: 1000;">
+    Loading notices...
+  </div>
+
   <!-- Main Section -->
   <div class="main-section" id="main">
     <div class="event1">
       <h2 class="heading">University Announcements & Notices</h2>
-      <div>
+
+      <!-- Dynamic notices container -->
+      <div id="dynamic-notices" style="display: none;">
+        <ul id="notices-list">
+          <!-- Notices will be loaded here dynamically -->
+        </ul>
+      </div>
+
+      <!-- Fallback notices (shown if loading fails) -->
+      <div id="fallback-notices">
         <ul>
           <li><i>23-May-2025 :</i> The Faculty of Urban and Aquatic Bioresource held its orientation program for the new student intake on May 21, 2025, at the faculty premises.</li>
           <li><i>01-Jun-2025 :</i> Notice 2</li>
@@ -56,5 +70,104 @@
       <p>E-mail : <a href="mailto:info@sjp.ac.lk">info@sjp.ac.lk</a></p>
     </div>
   </footer>
+
+  <script>
+  // Load notices when page loads
+  document.addEventListener('DOMContentLoaded', function() {
+      loadNotices();
+  });
+
+  function loadNotices() {
+      showLoading(true);
+      
+      fetch('student_home.php', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: 'action=get_notices'
+      })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.json();
+      })
+      .then(data => {
+          showLoading(false);
+          console.log('Notices data received:', data);
+          
+          if (data.success && data.notices && data.notices.length > 0) {
+              displayNotices(data.notices);
+          } else if (data.error) {
+              console.error('Not logged in:', data.error);
+              window.location.href = 'login.php';
+          } else {
+              console.log('No notices found or error loading notices');
+              showFallbackNotices();
+          }
+      })
+      .catch(error => {
+          showLoading(false);
+          console.error('Error loading notices:', error);
+          showFallbackNotices();
+      });
+  }
+
+  function displayNotices(notices) {
+      const fallbackContainer = document.getElementById('fallback-notices');
+      const dynamicContainer = document.getElementById('dynamic-notices');
+      const noticesList = document.getElementById('notices-list');
+      
+      // Clear existing notices
+      noticesList.innerHTML = '';
+      
+      // Add each notice
+      notices.forEach(notice => {
+          const li = document.createElement('li');
+          
+          // Format date
+          const date = new Date(notice.date);
+          const formattedDate = date.toLocaleDateString('en-GB', { 
+              day: '2-digit', 
+              month: 'short', 
+              year: 'numeric' 
+          });
+          
+          // Create notice content
+          let noticeContent = `<i>${formattedDate} :</i> <strong>${notice.title}</strong> - ${notice.description}`;
+          
+          // Add attachment link if exists
+          if (notice.attachment) {
+              noticeContent += ` <a href="${notice.attachment}" target="_blank" class="attachment-link">[View Attachment]</a>`;
+          }
+          
+          li.innerHTML = noticeContent;
+          noticesList.appendChild(li);
+      });
+      
+      // Show dynamic notices, hide fallback
+      fallbackContainer.style.display = 'none';
+      dynamicContainer.style.display = 'block';
+      
+      console.log('Displaying', notices.length, 'notices');
+  }
+
+  function showFallbackNotices() {
+      const fallbackContainer = document.getElementById('fallback-notices');
+      const dynamicContainer = document.getElementById('dynamic-notices');
+      
+      fallbackContainer.style.display = 'block';
+      dynamicContainer.style.display = 'none';
+      
+      console.log('Using fallback notices');
+  }
+
+  function showLoading(show) {
+      const loader = document.getElementById('loading-indicator');
+      loader.style.display = show ? 'block' : 'none';
+  }
+</script>
+
 </body>
 </html>
