@@ -8,11 +8,18 @@
 </head>
 <body class="staff">
 
-    
     <div class="background"></div>
 
     <!-- Logo at the top-right -->
     <img src="logo.jpg" alt="Logo" class="logo">
+
+    <!-- Loading indicator -->
+    <div id="loading-indicator" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: white; padding: 20px; border-radius: 8px; display: none; z-index: 1000;">
+        Loading profile...
+    </div>
+
+    <!-- Message container for notifications -->
+    <div id="message-container" style="position: fixed; top: 20px; right: 20px; z-index: 1000;"></div>
 
     <div class="profile-container">
         <header class="profile-header">
@@ -25,24 +32,47 @@
         </header>
         
         <main class="profile-details">
-            <div class="detail-row">
-                <span class="detail-label">Name:</span>
-                <span class="detail-value" id="staff-name">Dr. Jane Smith</span>
+            <!-- Static fallback content -->
+            <div id="fallback-profile" style="display: block;">
+                <div class="detail-row">
+                    <span class="detail-label">Name:</span>
+                    <span class="detail-value">Dr. Jane Smith</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Email:</span>
+                    <span class="detail-value">jane.smith@university.edu</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Staff Id :</span>
+                    <span class="detail-value">fc122252</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Status :</span>
+                    <span class="detail-value">Enrolled</span>
+                </div>
             </div>
-            <div class="detail-row">
-                <span class="detail-label">Email:</span>
-                <span class="detail-value" id="staff-email">jane.smith@university.edu</span>
-            </div>
-            <div class="detail-row">
-                <span class="detail-label">Staff Id :</span>
-                <span class="detail-value" id="staff-id">fc122252</span>
-            </div>
-            <div class="detail-row">
-                <span class="detail-label">Status :</span>
-                <span class="detail-value" id="staff-status">Enrolled</span>
+
+            <!-- Dynamic content container -->
+            <div id="dynamic-profile" style="display: none;">
+                <div class="detail-row">
+                    <span class="detail-label">Name:</span>
+                    <span class="detail-value" id="staff-name">Loading...</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Email:</span>
+                    <span class="detail-value" id="staff-email">Loading...</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Staff ID:</span>
+                    <span class="detail-value" id="staff-id">Loading...</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Status:</span>
+                    <span class="detail-value" id="staff-status">Loading...</span>
+                </div>
             </div>
             
-            <button id="change-password-btn" class="action-btn"><a href="ChangePassword.html">Change Password</a></button>
+            <button id="change-password-btn" class="action-btn"><a href="Changepassword.html">Change Password</a></button>
         </main>
     </div>
     

@@ -94,10 +94,52 @@ nav a {
   font-size: 14px;
 }
 
+.event1 ul {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
 .event1 ul li {
   margin-bottom: 20px;
   list-style: none;
   text-align: left;
+  line-height: 1.6;
+}
+
+.event1 ul li strong {
+  color: #000;
+  font-weight: 600;
+}
+
+.attachment-link {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+.attachment-link:hover {
+  text-decoration: underline;
+}
+
+/* Scrollbar styling for notices list */
+.event1 ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+.event1 ul::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.event1 ul::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.event1 ul::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 /* Footer */
@@ -172,16 +214,16 @@ nav a {
     margin: 10px 5px;
   }
 
-  .event {
+  .event1 {
     width: 90%;
     font-size: 14px;
   }
 
-  .event .heading {
+  .event1 .heading {
     font-size: 18px;
   }
 
-  .event ul li {
+  .event1 ul li {
     font-size: 14px;
   }
 
@@ -194,4 +236,3 @@ nav a {
     font-size: 14px;
   }
 }
-

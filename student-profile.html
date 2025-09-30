@@ -14,6 +14,14 @@
     <!-- Logo at the top-right -->
     <img src="logo.jpg" alt="Logo" class="logo">
 
+    <!-- Loading indicator -->
+    <div id="loading-indicator" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: white; padding: 20px; border-radius: 8px; display: none; z-index: 1000;">
+        Loading profile...
+    </div>
+
+    <!-- Message container for notifications -->
+    <div id="message-container" style="position: fixed; top: 20px; right: 20px; z-index: 1000;"></div>
+
     <div class="profile-container">
         <header class="profile-header">
             <h1>Student Profile</h1>
@@ -25,32 +33,63 @@
         </header>
         
         <main class="profile-details">
-            <div class="detail-row">
-                <span class="detail-label">Name:</span>
-                <span class="detail-value" id="student-name">John Doe</span>
+            <!-- Static fallback content -->
+            <div id="fallback-profile" style="display: block;">
+                <div class="detail-row">
+                    <span class="detail-label">Name:</span>
+                    <span class="detail-value">John Doe</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Department:</span>
+                    <span class="detail-value">Computer Science</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Registration No:</span>
+                    <span class="detail-value">CS20231001</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Email:</span>
+                    <span class="detail-value">john.doe@university.edu</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Index No:</span>
+                    <span class="detail-value">15001001</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Status :</span>
+                    <span class="detail-value">Enrolled</span>
+                </div>
             </div>
-            <div class="detail-row">
-                <span class="detail-label">Department:</span>
-                <span class="detail-value" id="student-dept">Computer Science</span>
-            </div>
-            <div class="detail-row">
-                <span class="detail-label">Registration No:</span>
-                <span class="detail-value" id="student-reg">CS20231001</span>
-            </div>
-            <div class="detail-row">
-                <span class="detail-label">Email:</span>
-                <span class="detail-value" id="student-email">john.doe@university.edu</span>
-            </div>
-            <div class="detail-row">
-                <span class="detail-label">Index No:</span>
-                <span class="detail-value" id="student-index">15001001</span>
-            </div>
-            <div class="detail-row">
-                <span class="detail-label">Status :</span>
-                <span class="detail-value" id="student-status">Enrolled</span>
+
+            <!-- Dynamic content container -->
+            <div id="dynamic-profile" style="display: none;">
+                <div class="detail-row">
+                    <span class="detail-label">Name:</span>
+                    <span class="detail-value" id="student-name">Loading...</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Email:</span>
+                    <span class="detail-value" id="student-email">Loading...</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Student ID:</span>
+                    <span class="detail-value" id="student-id">Loading...</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Department:</span>
+                    <span class="detail-value" id="student-dept">Loading...</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Batch:</span>
+                    <span class="detail-value" id="student-batch">Loading...</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Status:</span>
+                    <span class="detail-value" id="student-status">Loading...</span>
+                </div>
             </div>
             
-            <button id="change-password-btn" class="action-btn"><a href="ChangePassword.html">Change Password</a></button>
+            <button id="change-password-btn" class="action-btn"><a href="Changepassword.html">Change Password</a></button>
         </main>
     </div>
     
